@@ -6,25 +6,25 @@
 
 ### @sgrud/skeletons/angular
 - based on [Angular](https://angular.io)
+- [view demonstration](https://sgrud.github.io/skeletons/angular)
 - [view repository](https://github.com/sgrud/skeletons/blob/main/angular)
-- [view demo](https://sgrud.github.io/skeletons/angular)
 
 ### @sgrud/skeletons/fast
 - based on [FAST Element](https://www.fast.design)
+- [view demonstration](https://sgrud.github.io/skeletons/fast)
 - [view repository](https://github.com/sgrud/skeletons/blob/main/fast)
-- [view demo](https://sgrud.github.io/skeletons/fast)
 
 ### @sgrud/skeletons/lit
 - based on [Lit](https://lit.dev)
+- [view demonstration](https://sgrud.github.io/skeletons/lit)
 - [view repository](https://github.com/sgrud/skeletons/blob/main/lit)
-- [view demo](https://sgrud.github.io/skeletons/lit)
 
 ### @sgrud/skeletons/preact
 - based on [Preact](https://preactjs.com)
+- [view demonstration](https://sgrud.github.io/skeletons/preact)
 - [view repository](https://github.com/sgrud/skeletons/blob/main/preact)
-- [view demo](https://sgrud.github.io/skeletons/preact)
 
 ### @sgrud/skeletons/sgrud
 - based on [SGRUD](https://sgrud.github.io)
+- [view demonstration](https://sgrud.github.io/skeletons/sgrud)
 - [view repository](https://github.com/sgrud/skeletons/blob/main/sgrud)
-- [view demo](https://sgrud.github.io/skeletons/sgrud)
