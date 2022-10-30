@@ -29,26 +29,26 @@ jobs:
       - name: Build source
         working-directory: ./source
         run: |
-          mkdir skeletons
-          cp README.md skeletons
+          mkdir ./skeletons
+          cp ./README.md ./skeletons
 
           for i in $(ls */package.json | xargs -n1 dirname); do
-            npm --prefix $i install
-            npm --prefix $i run build
-            cp -R $i/dist skeletons/$i
+            npm --prefix ./$i install
+            npm --prefix ./$i run build
+            cp -R ./$i/dist ./skeletons/$i
 
-            sed -Ei skeletons/$i/index.html \
+            sed -Ei ./skeletons/$i/index.html \
               -e "s|\"/dist/|\"/skeletons/$i/|g" \
               -e "s|\"/node_modules/|\"//unpkg.com/|g" \
               -e "s|\"//unpkg.com/(.*/runtimify[^\"]+)|\"/skeletons/+run/\1|g"
 
             for j in $(grep -Eho '[^"]+runtimify[^"]+' $i/dist/index.html); do
-              mkdir -p skeletons/+run/$(dirname ${j#/node_modules/})
-              cp -R $i$j skeletons/+run/$(dirname ${j#/node_modules/})
+              mkdir -p ./skeletons/+run/$(dirname ${j#/*/})
+              cp -R ./$i$j ./skeletons/+run/$(dirname ${j#/*/})
             done
           done
 
-          git --git-dir ../target/.git add -Af skeletons
+          git --git-dir ../target/.git add -Af ./skeletons
 
       - name: Push target
         working-directory: ./target

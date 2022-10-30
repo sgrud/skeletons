@@ -2,8 +2,7 @@
 > SGRUD is Growing Rapidly Until Distinction
 
 ## @sgrud/skeletons
-> `@sgrud/skeletons` - Skeletons to kickstart a
-> [SGRUD](https://sgrud.github.io)-based project
+> `@sgrud/skeletons` - [SGRUD](https://sgrud.github.io)-compatible skeletons.
 
 ### @sgrud/skeletons/angular
 - based on [Angular](https://angular.io)
@@ -26,6 +25,6 @@
 - [view demo](https://sgrud.github.io/skeletons/preact)
 
 ### @sgrud/skeletons/sgrud
-- based on [SGRUD](https://sgrud.github.io/client)
+- based on [SGRUD](https://sgrud.github.io)
 - [view repository](https://github.com/sgrud/skeletons/blob/main/sgrud)
 - [view demo](https://sgrud.github.io/skeletons/sgrud)
