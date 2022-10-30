@@ -6,6 +6,6 @@ export default {
     runtimeChunk: false
   },
   output: {
-    filename: packageJson.name + '.min.js'
+    filename: packageJson.name + '.js'
   }
 } as Configuration;

@@ -2,7 +2,8 @@
   "name": "sgrud-skeleton-angular",
   "private": true,
   "version": "0.0.0",
-  "unpkg": "./dist/sgrud-skeleton-angular.min.js",
+  "exports": "./dist/sgrud-skeleton-angular.js",
+  "unpkg": "./dist/sgrud-skeleton-angular.js",
   "scripts": {
     "build": "ng build --deploy-url /dist/ && sgrud postbuild",
     "start": "sgrud universal ./dist/index.html"

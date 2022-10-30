@@ -68,7 +68,8 @@
     },
     "lit-html": {
       "exports": {
-        "lit-html": "./lit-html.js"
+        "lit-html": "./lit-html.js",
+        "lit-html/": "./"
       }
     },
     "regenerator-runtime": {
