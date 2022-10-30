@@ -1,0 +1,22 @@
+{
+  "name": "sgrud-skeleton-angular",
+  "private": true,
+  "version": "0.0.0",
+  "unpkg": "./dist/sgrud-skeleton-angular.min.js",
+  "scripts": {
+    "build": "ng build --deploy-url /dist/ && sgrud postbuild",
+    "start": "sgrud universal ./dist/index.html"
+  },
+  "browserslist": [],
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "14.0.1",
+    "@angular/cli": "14.2.7",
+    "@angular/core": "14.2.8",
+    "@angular/elements": "14.2.8",
+    "@angular/platform-browser": "14.2.8",
+    "@angular/platform-browser-dynamic": "14.2.8",
+    "@sgrud/bin": "latest",
+    "@types/estree": "1.0.0",
+    "tslib": "2.4.0"
+  }
+}

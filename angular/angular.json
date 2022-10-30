@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "analytics": false,
+    "cache": {
+      "enabled": false
+    }
+  },
+  "projects": {
+    "sgrud-skeleton-angular": {
+      "projectType": "application",
+      "root": "./",
+      "sourceRoot": "./src",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "extractLicenses": false,
+            "index": "./res/index.html",
+            "inlineStyleLanguage": "sass",
+            "main": "./src/index.ts",
+            "outputHashing": "none",
+            "outputPath": "./dist",
+            "sourceMap": true,
+            "tsConfig": "./tsconfig.json",
+            "customWebpackConfig": {
+              "path": "./src/webpack.ts"
+            }
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      }
+    }
+  }
+}

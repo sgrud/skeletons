@@ -1,0 +1,60 @@
+name: SGRUD Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  skeletons:
+    name: Skeletons
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install node
+        uses: actions/setup-node@v2
+
+      - name: Checkout source
+        uses: actions/checkout@v2
+        with:
+          path: ./source
+
+      - name: Checkout target
+        uses: actions/checkout@v2
+        with:
+          path: ./target
+          repository: sgrud/sgrud.github.io
+          ssh-key: ${{secrets.PAGES_DEPLOY_KEY}}
+
+      - name: Build source
+        working-directory: ./source
+        run: |
+          mkdir skeletons
+          cp README.md skeletons
+
+          for i in $(ls */package.json | xargs -n1 dirname); do
+            npm --prefix $i install
+            npm --prefix $i run build
+            cp -R $i/dist skeletons/$i
+
+            sed -Ei skeletons/$i/index.html \
+              -e "s|\"/dist/|\"/skeletons/$i/|g" \
+              -e "s|\"/node_modules/|\"//unpkg.com/|g" \
+              -e "s|\"//unpkg.com/(.*/runtimify[^\"]+)|\"/skeletons/.run/\1|g"
+
+            for j in $(grep -Eho '[^"]+runtimify[^"]+' $i/dist/index.html); do
+              mkdir -p skeletons/.run/$(dirname ${j#/node_modules/})
+              cp -R $i$j skeletons/.run/$(dirname ${j#/node_modules/})
+            done
+          done
+
+          git --git-dir ../target/.git add -Af skeletons
+
+      - name: Push target
+        working-directory: ./target
+        run: |
+          git diff --cached --quiet && exit
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          git commit -m ${{github.repository}}@${{github.sha}}
+          git push
