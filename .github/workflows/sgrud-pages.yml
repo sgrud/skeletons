@@ -12,15 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
 
       - name: Checkout source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: ./source
 
       - name: Checkout target
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: ./target
           repository: sgrud/sgrud.github.io
@@ -36,6 +38,9 @@ jobs:
             npm --prefix ./$i install
             npm --prefix ./$i run build
             cp -R ./$i/dist ./skeletons/$i
+
+            sed -e 's/##/###/g' -e '/^$/,$p' -n ./$i/README.md \
+              >>./skeletons/README.md
 
             sed -Ei ./skeletons/$i/index.html \
               -e "s|\"/dist/|\"/skeletons/$i/|g" \
