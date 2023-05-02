@@ -12,8 +12,10 @@
     "importHelpers": true,
     "inlineSources": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "sourceMap": true,
 
+    "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,

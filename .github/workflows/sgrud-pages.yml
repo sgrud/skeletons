@@ -14,7 +14,7 @@ jobs:
       - name: Install node
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 16
 
       - name: Checkout source
         uses: actions/checkout@v3
@@ -43,13 +43,13 @@ jobs:
               >>./skeletons/README.md
 
             sed -Ei ./skeletons/$i/index.html \
-              -e "s|\"/dist/|\"/skeletons/$i/|g" \
+              -e "s|\"/(node_modules/.+/runtimify[^\"]+)|\"/skeletons/+\1|g" \
               -e "s|\"/node_modules/|\"//unpkg.com/|g" \
-              -e "s|\"//unpkg.com/(.*/runtimify[^\"]+)|\"/skeletons/+run/\1|g"
+              -e "s|\"/dist/|\"/skeletons/$i/|g"
 
             for j in $(grep -Eho '[^"]+runtimify[^"]+' $i/dist/index.html); do
-              mkdir -p ./skeletons/+run/$(dirname ${j#/*/})
-              cp -R ./$i$j ./skeletons/+run/$(dirname ${j#/*/})
+              mkdir -p ./skeletons/+node_modules/$(dirname ${j#/*/})
+              cp -R ./$i$j ./skeletons/+node_modules/$(dirname ${j#/*/})
             done
           done
 
