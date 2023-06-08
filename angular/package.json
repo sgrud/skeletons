@@ -11,13 +11,13 @@
   },
   "browserslist": [],
   "devDependencies": {
-    "@angular-builders/custom-webpack": "15.0.0",
-    "@angular/cli": "15.2.7",
-    "@angular/core": "15.2.8",
-    "@angular/elements": "15.2.8",
-    "@angular/platform-browser": "15.2.8",
-    "@angular/platform-browser-dynamic": "15.2.8",
+    "@angular-builders/custom-webpack": "16.0.0",
+    "@angular/cli": "16.0.5",
+    "@angular/core": "16.0.4",
+    "@angular/elements": "16.0.4",
+    "@angular/platform-browser": "16.0.4",
+    "@angular/platform-browser-dynamic": "16.0.4",
     "@sgrud/bin": "latest",
-    "tslib": "2.5.0"
+    "tslib": "2.5.3"
   }
 }
