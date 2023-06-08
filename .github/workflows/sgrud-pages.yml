@@ -14,7 +14,7 @@ jobs:
       - name: Install node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: latest
 
       - name: Checkout source
         uses: actions/checkout@v3
@@ -53,6 +53,9 @@ jobs:
             done
           done
 
+      - name: Stage source
+        working-directory: ./source
+        run: |
           git --git-dir ../target/.git add -Af ./skeletons
 
       - name: Push target
