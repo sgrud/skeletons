@@ -5,7 +5,7 @@
   "exports": "./dist/sgrud-skeleton-angular.js",
   "unpkg": "./dist/sgrud-skeleton-angular.js",
   "scripts": {
-    "build": "ng build --deploy-url /dist/ 2>/dev/null",
+    "build": "ng build --deploy-url /dist/",
     "postbuild": "sgrud postbuild",
     "start": "sgrud universal ./dist/index.html"
   },
