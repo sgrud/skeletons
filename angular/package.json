@@ -5,11 +5,15 @@
   "exports": "./dist/sgrud-skeleton-angular.js",
   "unpkg": "./dist/sgrud-skeleton-angular.js",
   "scripts": {
-    "build": "ng build --deploy-url /dist/",
+    "build": "ng build",
     "postbuild": "sgrud postbuild",
     "start": "sgrud universal ./dist/index.html"
   },
-  "browserslist": [],
+  "sgrud": {
+    "resources": [
+      "./res/index.html"
+    ]
+  },
   "devDependencies": {
     "@angular-builders/custom-webpack": "16.0.0",
     "@angular/cli": "16.0.5",

@@ -17,7 +17,7 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "extractLicenses": false,
-            "index": "./res/index.html",
+            "index": "",
             "inlineStyleLanguage": "sass",
             "main": "./src/index.ts",
             "outputHashing": "none",
