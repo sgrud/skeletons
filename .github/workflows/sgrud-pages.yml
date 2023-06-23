@@ -53,7 +53,7 @@ jobs:
             done
           done
 
-      - name: Stage source
+      - name: Stage target
         working-directory: ./source
         run: |
           git --git-dir ../target/.git add -Af ./skeletons
