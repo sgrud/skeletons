@@ -27,7 +27,7 @@ export class LitComponent extends LitElement {
     `;
   }
 
-  protected override createRenderRoot(): Element | ShadowRoot {
+  protected override createRenderRoot(): DocumentFragment | HTMLElement {
     while (this.shadowRoot?.hasChildNodes()) {
       this.shadowRoot.removeChild(this.shadowRoot.lastChild!);
     }
